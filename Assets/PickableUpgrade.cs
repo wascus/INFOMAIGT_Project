@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class UpgradePickable : MonoBehaviour
 {
-    public enum UpgradeType { Health, Ammo, MaxAmmo } // Different types of upgrades
+    public enum UpgradeType { Resource, WeaponChange } // Different types of upgrades
     public UpgradeType upgradeType;  // Choose the type in the Inspector
-    public int value = 1;  // The value of the upgrade (e.g., +10 health or +1 ammo)
-    private SpriteRenderer spriteRenderer;  // Reference to the SpriteRenderer component
 
+    public int value = 1;  // The value of the upgrade (e.g., +10 health or +1 ammo)
+    public WeaponType weaponType;
+    private SpriteRenderer spriteRenderer;  // Reference to the SpriteRenderer component
     // Define colors for each upgrade type
-    public Color healthColor = Color.red;   // Health upgrade color
-    public Color ammoColor = Color.blue;    // Ammo upgrade color
-    public Color maxAmmoColor = Color.green; // Weapon upgrade color
+    public Color resourceColor = Color.green;
+    public Color weaponChangeColor = Color.red;
 
     void Start()
     {
@@ -20,14 +20,11 @@ public class UpgradePickable : MonoBehaviour
         // Set the color based on the upgrade type
         switch (upgradeType)
         {
-            case UpgradeType.Health:
-                spriteRenderer.color = healthColor;
+            case UpgradeType.Resource:
+                spriteRenderer.color = resourceColor;
                 break;
-            case UpgradeType.Ammo:
-                spriteRenderer.color = ammoColor;
-                break;
-            case UpgradeType.MaxAmmo:
-                spriteRenderer.color = maxAmmoColor;
+            case UpgradeType.WeaponChange:
+                spriteRenderer.color = weaponChangeColor;
                 break;
         }
     }
@@ -37,23 +34,18 @@ public class UpgradePickable : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
           ShootingWeapon shootingWeapon = collision.gameObject.GetComponent<ShootingWeapon>();
-          HealthComponent health = collision.gameObject.GetComponent<HealthComponent>();
+          ResourceComponent resource = collision.gameObject.GetComponent<ResourceComponent>();
             {
                 switch (upgradeType)
                 {
-                    case UpgradeType.Health:
-
-                        health.Heal(value);
+                    case UpgradeType.Resource:
+                        resource.Heal(value);
                         break;
-                    case UpgradeType.Ammo:
-                        shootingWeapon.IncreaseAmmo(value);
-                        break;
-                    case UpgradeType.MaxAmmo:
-                        shootingWeapon.AdjustMaxAmmo(value);
+                    case UpgradeType.WeaponChange:
+                        shootingWeapon.weaponType = weaponType;
                         break;
                 }
             }
-
             // Destroy the upgrade object after being collected
             Destroy(gameObject);
         }

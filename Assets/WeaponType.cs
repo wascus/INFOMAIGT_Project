@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponType: ScriptableObject
 {
 
-    public int ammoCost = 1;
+    public int resourceCost = 1;
     public GameObject projectilePrefab;
     [Range(1,20)]
     public int projectilesPerShot = 1;

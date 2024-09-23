@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5524de4d6efb749199c67b2a3447b707, type: 3}
   m_Name: BaseWeapon
   m_EditorClassIdentifier: 
-  ammoCost: 2
+  resourceCost: 5
   projectilePrefab: {fileID: 7672375596508272924, guid: 100ed4bdbef6147239d95d0976b7af1f, type: 3}
   projectilesPerShot: 1
   spreadAngle: 0
