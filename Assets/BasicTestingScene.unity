@@ -657,7 +657,7 @@ MonoBehaviour:
   shootingWeapon: {fileID: 1766968103}
   playerTransform: {fileID: 1766968100}
   minSize: {x: 0.5, y: 0.5, z: 1}
-  maxSize: {x: 1.5, y: 1.5, z: 1}
+  maxSize: {x: 4, y: 4, z: 1}
 --- !u!114 &1766968103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,11 +670,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b6f3f5121c4e4543aeeedbbad58c391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 7672375596508272924, guid: 100ed4bdbef6147239d95d0976b7af1f, type: 3}
+  weaponType: {fileID: 11400000, guid: 29895855f82bb459cb5456b9acb16d20, type: 2}
   firePoint: {fileID: 177147837}
-  fireForce: 20
-  shootCooldown: 0.5
-  maxAmmo: 10
+  maxAmmo: 50
+  startingAmmo: 20
 --- !u!1 &1876480212
 GameObject:
   m_ObjectHideFlags: 0

@@ -46,11 +46,10 @@ public class UpgradePickable : MonoBehaviour
                         health.Heal(value);
                         break;
                     case UpgradeType.Ammo:
-
                         shootingWeapon.IncreaseAmmo(value);
                         break;
                     case UpgradeType.MaxAmmo:
-                        shootingWeapon.ChangeMaxAmmo(value);
+                        shootingWeapon.AdjustMaxAmmo(value);
                         break;
                 }
             }

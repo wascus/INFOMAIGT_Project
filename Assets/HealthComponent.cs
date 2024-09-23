@@ -4,8 +4,8 @@ using System.Collections;
 public class HealthComponent : MonoBehaviour
 {
 
-    public int MaximumHealth;
-    public int CurrentHealth;
+    public int MaximumHealth = 1;
+    public int CurrentHealth = 1;
 
     void Start ()
     {
