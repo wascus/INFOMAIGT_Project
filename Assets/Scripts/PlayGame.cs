@@ -7,6 +7,6 @@ public class PlayGame : MonoBehaviour
 {
     public void PlayGame_()
     {
-        SceneManager.LoadScene("BasicTestingScene"); // Replace with the name of your game scene
+        SceneManager.LoadScene("Scenes/Level1");
     }
 }
